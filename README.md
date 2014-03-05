@@ -1,0 +1,1 @@
+Kata OCR exercise using TDD.  Included is an IntelliJ Idea v9 project.
