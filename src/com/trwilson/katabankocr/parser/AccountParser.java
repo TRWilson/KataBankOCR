@@ -8,8 +8,56 @@ package com.trwilson.katabankocr.parser;
 
 public class AccountParser
 {
+    private String[] OcrCharacters =
+            {
+                    " _ " +
+                    "| |" +
+                    "|_|",
+
+                    "   " +
+                    "  |" +
+                    "  |",
+
+                    " _ " +
+                    " _|" +
+                    "|_ ",
+
+                    " _ " +
+                    " _|" +
+                    " _|",
+
+                    "   " +
+                    "|_|" +
+                    "  |",
+
+                    " _ " +
+                    "|_ " +
+                    " _|",
+
+                    " _ " +
+                    "|_ " +
+                    "|_|",
+
+                    " _ " +
+                    "  |" +
+                    "  |",
+
+                    " _ " +
+                    "|_|" +
+                    "|_|",
+
+                    " _ " +
+                    "|_|" +
+                    " _|"
+            };
+
     public int ParseDigit(String ocrDigit)
     {
+        for(int i = 0; i < OcrCharacters.length; i++ ) {
+            if(OcrCharacters[i].equals(ocrDigit)) {
+                return i;
+            }
+        }
         return -1;
     }
 }
