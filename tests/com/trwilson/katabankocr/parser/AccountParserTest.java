@@ -1,8 +1,7 @@
 package com.trwilson.katabankocr.parser;
 
-import org.junit.Test;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,12 +11,55 @@ import org.junit.Before;
 public class AccountParserTest
 {
     @Test
-    public void TestParseDigit()
+    public void TestParseSingleDigit()
     {
         AccountParser parser = new AccountParser();
         String ocrDigit5 = " _ " +
                            "|_ " +
                            " _|";
         Assert.assertEquals(5, parser.ParseDigit(ocrDigit5));
+    }
+
+    @Test
+    public void TestParseAllDigits()
+    {
+        AccountParser parser = new AccountParser();
+        String ocrDigits[] = {
+                " _ " +
+                "| |" +
+                "|_|",
+                "   " +
+                "  |" +
+                "  |",
+                " _ " +
+                " _|" +
+                "|_ ",
+                " _ " +
+                " _|" +
+                " _|",
+                "   " +
+                "|_|" +
+                "  |",
+                " _ " +
+                "|_ " +
+                " _|",
+                " _ " +
+                "|_ " +
+                "|_|",
+                " _ " +
+                "  |" +
+                "  |",
+                " _ " +
+                "|_|" +
+                "|_|",
+                " _ " +
+                "|_|" +
+                " _|"
+        };
+
+        for (int i = 0; i < ocrDigits.length; i++)
+        {
+            Assert.assertEquals(i, parser.ParseDigit(ocrDigits[i]));
+        }
     }
 }
