@@ -51,6 +51,11 @@ public class AccountParser
                     " _|"
             };
 
+    public String GetOcrDigit(int digit)
+    {
+        return OcrCharacters[digit];
+    }
+
     public int ParseDigit(String ocrDigit)
     {
         for(int i = 0; i < OcrCharacters.length; i++ ) {
@@ -58,6 +63,11 @@ public class AccountParser
                 return i;
             }
         }
+        return -1;
+    }
+
+    public int ParseAccountNumber(String ocrNumber)
+    {
         return -1;
     }
 }
