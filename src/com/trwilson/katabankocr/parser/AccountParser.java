@@ -70,6 +70,12 @@ public class AccountParser
 
     public int ParseAccountNumber(String[] ocrNumber)
     {
-        return -1;
+        int number = 0;
+
+        for(String ocrChar : ocrNumber) {
+            number *= 10; // Move the existing number to the left.
+            number += ParseDigit(ocrChar);
+        }
+        return number;
     }
 }
