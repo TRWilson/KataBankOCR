@@ -72,7 +72,8 @@ public class AccountParser
     {
         int number = 0;
 
-        for(String ocrChar : ocrNumber) {
+        for (String ocrChar : ocrNumber)
+        {
             number *= 10; // Move the existing number to the left.
             number += ParseDigit(ocrChar);
         }
