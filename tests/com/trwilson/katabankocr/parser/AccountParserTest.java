@@ -67,16 +67,18 @@ public class AccountParserTest
     public void TestParseAccountNumber()
     {
         AccountParser parser = new AccountParser();
-        String ocrAccountString = parser.GetOcrDigit(1) +
-                                  parser.GetOcrDigit(2) +
-                                  parser.GetOcrDigit(3) +
-                                  parser.GetOcrDigit(4) +
-                                  parser.GetOcrDigit(5) +
-                                  parser.GetOcrDigit(6) +
-                                  parser.GetOcrDigit(7) +
-                                  parser.GetOcrDigit(8) +
-                                  parser.GetOcrDigit(9) +
-                                  parser.GetOcrDigit(0);
+        String[] ocrAccountString = {
+                parser.GetOcrDigit(1),
+                parser.GetOcrDigit(2),
+                parser.GetOcrDigit(3),
+                parser.GetOcrDigit(4),
+                parser.GetOcrDigit(5),
+                parser.GetOcrDigit(6),
+                parser.GetOcrDigit(7),
+                parser.GetOcrDigit(8),
+                parser.GetOcrDigit(9),
+                parser.GetOcrDigit(0)
+        };
 
         // This test currently fails.
         Assert.assertEquals(1234567890, parser.ParseAccountNumber(ocrAccountString));

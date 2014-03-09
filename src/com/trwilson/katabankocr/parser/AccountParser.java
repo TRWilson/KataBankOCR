@@ -58,15 +58,17 @@ public class AccountParser
 
     public int ParseDigit(String ocrDigit)
     {
-        for(int i = 0; i < OcrCharacters.length; i++ ) {
-            if(OcrCharacters[i].equals(ocrDigit)) {
+        for (int i = 0; i < OcrCharacters.length; i++)
+        {
+            if (OcrCharacters[i].equals(ocrDigit))
+            {
                 return i;
             }
         }
         return -1;
     }
 
-    public int ParseAccountNumber(String ocrNumber)
+    public int ParseAccountNumber(String[] ocrNumber)
     {
         return -1;
     }
