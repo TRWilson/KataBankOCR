@@ -1,7 +1,7 @@
 package com.trwilson.katabankocr.fileReader;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,8 +10,16 @@ import java.io.IOException;
  */
 public class ReadOCRFile
 {
-    public BufferedReader readFile(String fileName) throws IOException
+    String readFile(String fileName)
     {
-        return null;
+        try
+        {
+            FileReader fileReader = new FileReader(fileName);
+            return "Success!";
+        }
+        catch (FileNotFoundException fnfe)
+        {
+            return "Failure!";
+        }
     }
 }

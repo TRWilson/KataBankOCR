@@ -16,6 +16,6 @@ public class ReadOCRFileTest
     public void TestOpenFile() throws IOException
     {
         ReadOCRFile readOCRFile = new ReadOCRFile();
-        Assert.assertNotNull(readOCRFile.readFile("OCRFile.txt"));
+        Assert.assertEquals(readOCRFile.readFile("OCRFile.txt"), "Success!");
     }
 }
