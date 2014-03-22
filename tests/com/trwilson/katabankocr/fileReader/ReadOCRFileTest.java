@@ -1,6 +1,7 @@
 package com.trwilson.katabankocr.fileReader;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -12,11 +13,27 @@ import java.io.IOException;
  */
 public class ReadOCRFileTest
 {
+    private String ocrData;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        ReadOCRFile readOCRFile = new ReadOCRFile();
+        ocrData = readOCRFile.readFile("OCRFile.txt");
+    }
+
     @Test
     public void TestOpenFile() throws IOException
     {
-        ReadOCRFile readOCRFile = new ReadOCRFile();
-        String accountNumber = readOCRFile.readFile("OCRFile.txt");
-        Assert.assertNotNull(accountNumber);
+        Assert.assertNotNull(ocrData);
+    }
+
+    @Test
+    public void TestReadOCRData() throws IOException
+    {
+        String expectedOcrData = "    _  _     _  _  _  _  _  _ \r\n" +
+                                 "  | _| _||_||_ |_   ||_||_|| |\r\n" +
+                                 "  ||_  _|  | _||_|  ||_| _||_|\r\n";
+        Assert.assertEquals(ocrData, expectedOcrData);
     }
 }

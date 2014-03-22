@@ -37,6 +37,7 @@ public class ReadOCRFile
         }
         catch (FileNotFoundException fnfe)
         {
+            System.err.println("File " + fileName + " not found");
             return null;
         }
     }

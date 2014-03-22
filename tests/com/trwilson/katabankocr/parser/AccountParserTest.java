@@ -1,6 +1,7 @@
 package com.trwilson.katabankocr.parser;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,10 +11,17 @@ import org.junit.Test;
  */
 public class AccountParserTest
 {
+    private AccountParser parser;
+
+    @Before
+    public void setUp() throws Exception
+    {
+        parser = new AccountParser();
+    }
+
     @Test
     public void TestParseSingleDigit()
     {
-        AccountParser parser = new AccountParser();
         String ocrDigit5 = " _ " +
                            "|_ " +
                            " _|";
@@ -23,7 +31,6 @@ public class AccountParserTest
     @Test
     public void TestParseAllDigits()
     {
-        AccountParser parser = new AccountParser();
         String ocrDigits[] = {
                 " _ " +
                 "| |" +
@@ -66,7 +73,6 @@ public class AccountParserTest
     @Test
     public void TestParseAccountNumber()
     {
-        AccountParser parser = new AccountParser();
         String[] ocrAccountString = {
                 parser.GetOcrDigit(1),
                 parser.GetOcrDigit(2),
