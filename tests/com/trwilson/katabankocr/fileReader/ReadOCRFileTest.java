@@ -13,27 +13,28 @@ import java.io.IOException;
  */
 public class ReadOCRFileTest
 {
-    private String ocrData;
+    private String _OCRData;
+    private ReadOCRFile _ReadOCRFile;
 
     @Before
-    public void setUp() throws Exception
+    public void setUp() throws IOException
     {
-        ReadOCRFile readOCRFile = new ReadOCRFile();
-        ocrData = readOCRFile.readFile("OCRFile.txt");
+        _ReadOCRFile = new ReadOCRFile();
+        _OCRData = _ReadOCRFile.ReadFile("OCRFile.txt");
     }
 
     @Test
-    public void TestOpenFile() throws IOException
+    public void TestOpenFile()
     {
-        Assert.assertNotNull(ocrData);
+        Assert.assertNotNull(_OCRData);
     }
 
     @Test
-    public void TestReadOCRData() throws IOException
+    public void TestReadOCRData()
     {
-        String expectedOcrData = "    _  _     _  _  _  _  _  _ \r\n" +
-                                 "  | _| _||_||_ |_   ||_||_|| |\r\n" +
-                                 "  ||_  _|  | _||_|  ||_| _||_|\r\n";
-        Assert.assertEquals(ocrData, expectedOcrData);
+        String expectedOCRData = "    _  _     _  _  _  _  _ \r\n" +
+                                 "  | _| _||_||_ |_   ||_||_|\r\n" +
+                                 "  ||_  _|  | _||_|  ||_| _|\r\n";
+        Assert.assertEquals(expectedOCRData, _OCRData);
     }
 }

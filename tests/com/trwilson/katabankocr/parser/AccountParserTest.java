@@ -11,12 +11,12 @@ import org.junit.Test;
  */
 public class AccountParserTest
 {
-    private AccountParser parser;
+    private AccountParser _AccountParser;
 
     @Before
     public void setUp() throws Exception
     {
-        parser = new AccountParser();
+        _AccountParser = new AccountParser();
     }
 
     @Test
@@ -25,7 +25,7 @@ public class AccountParserTest
         String ocrDigit5 = " _ " +
                            "|_ " +
                            " _|";
-        Assert.assertEquals(5, parser.ParseDigit(ocrDigit5));
+        Assert.assertEquals(5, _AccountParser.ParseDigit(ocrDigit5));
     }
 
     @Test
@@ -66,7 +66,7 @@ public class AccountParserTest
 
         for (int i = 0; i < ocrDigits.length; i++)
         {
-            Assert.assertEquals(i, parser.ParseDigit(ocrDigits[i]));
+            Assert.assertEquals(i, _AccountParser.ParseDigit(ocrDigits[i]));
         }
     }
 
@@ -74,19 +74,18 @@ public class AccountParserTest
     public void TestParseAccountNumber()
     {
         String[] ocrAccountString = {
-                parser.GetOcrDigit(1),
-                parser.GetOcrDigit(2),
-                parser.GetOcrDigit(3),
-                parser.GetOcrDigit(4),
-                parser.GetOcrDigit(5),
-                parser.GetOcrDigit(6),
-                parser.GetOcrDigit(7),
-                parser.GetOcrDigit(8),
-                parser.GetOcrDigit(9),
-                parser.GetOcrDigit(0)
+                _AccountParser.GetOCRDigit(1),
+                _AccountParser.GetOCRDigit(2),
+                _AccountParser.GetOCRDigit(3),
+                _AccountParser.GetOCRDigit(4),
+                _AccountParser.GetOCRDigit(5),
+                _AccountParser.GetOCRDigit(6),
+                _AccountParser.GetOCRDigit(7),
+                _AccountParser.GetOCRDigit(8),
+                _AccountParser.GetOCRDigit(9),
+                _AccountParser.GetOCRDigit(0)
         };
 
-        // This test currently fails.
-        Assert.assertEquals(1234567890, parser.ParseAccountNumber(ocrAccountString));
+        Assert.assertEquals(1234567890, _AccountParser.ParseAccountNumber(ocrAccountString));
     }
 }

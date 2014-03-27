@@ -8,7 +8,7 @@ package com.trwilson.katabankocr.parser;
 
 public class AccountParser
 {
-    private String[] OcrCharacters =
+    private String[] OCRDigits =
             {
                     " _ " +
                     "| |" +
@@ -51,16 +51,16 @@ public class AccountParser
                     " _|"
             };
 
-    public String GetOcrDigit(int digit)
+    public String GetOCRDigit(int digit)
     {
-        return OcrCharacters[digit];
+        return OCRDigits[digit];
     }
 
     public int ParseDigit(String ocrDigit)
     {
-        for (int i = 0; i < OcrCharacters.length; i++)
+        for (int i = 0; i < OCRDigits.length; i++)
         {
-            if (OcrCharacters[i].equals(ocrDigit))
+            if (OCRDigits[i].equals(ocrDigit))
             {
                 return i;
             }

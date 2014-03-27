@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class ReadOCRFile
 {
-    String readFile(String fileName) throws IOException
+    String ReadFile(String fileName) throws IOException
     {
         try
         {
