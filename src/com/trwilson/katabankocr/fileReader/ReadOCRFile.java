@@ -41,4 +41,9 @@ public class ReadOCRFile
             return null;
         }
     }
+
+    int ParseString(String ocrString)
+    {
+        return -1;
+    }
 }

@@ -37,4 +37,14 @@ public class ReadOCRFileTest
                                  "  ||_  _|  | _||_|  ||_| _|\r\n";
         Assert.assertEquals(expectedOCRData, _OCRData);
     }
+
+    @Test
+    public void TestParseFileData()
+    {
+        int accountNumber;
+
+        accountNumber = _ReadOCRFile.ParseString(_OCRData);
+        Assert.assertEquals(123456789, accountNumber);
+    }
+
 }
