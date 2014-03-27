@@ -1,5 +1,7 @@
 package com.trwilson.katabankocr.fileReader;
 
+import com.trwilson.katabankocr.parser.AccountParser;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -44,6 +46,20 @@ public class ReadOCRFile
 
     int ParseString(String ocrString)
     {
-        return -1;
+        String[] ocrChars = {"", "", "", "", "", "", "", "", ""};
+        AccountParser parser = new AccountParser();
+
+        String noLineSeps = ocrString.replace(System.getProperty("line.separator"), "");
+
+        for (int line = 0; line < 3; line++)
+        {
+            for (int index = 0; index < 9; index++)
+            {
+                int offset = line * 27 + index * 3;
+                ocrChars[index] += noLineSeps.substring(offset, offset + 3);
+            }
+        }
+
+        return parser.ParseAccountNumber(ocrChars);
     }
 }
