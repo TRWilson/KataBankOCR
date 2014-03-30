@@ -100,6 +100,14 @@ public class AccountParser
 
     public boolean IsValidAccountNumber(int accountNumber)
     {
-        return false;
+        int checksum = 0;
+
+        for (int index = 1; index <= 9; index++)
+        {
+            checksum += index * (accountNumber % 10);
+            accountNumber /= 10;
+        }
+
+        return (checksum % 11) == 0;
     }
 }

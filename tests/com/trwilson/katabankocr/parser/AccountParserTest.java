@@ -103,6 +103,17 @@ public class AccountParserTest
     public void TestIsValidAccountNumber()
     {
         Assert.assertTrue(_AccountParser.IsValidAccountNumber(457508000));
+    }
+
+    @Test
+    public void TestIsValidAccountNumber2()
+    {
+        Assert.assertTrue(_AccountParser.IsValidAccountNumber(345882865));
+    }
+
+    @Test
+    public void TestIsNotValidAccountNumber()
+    {
         Assert.assertFalse(_AccountParser.IsValidAccountNumber(664371495));
     }
 }

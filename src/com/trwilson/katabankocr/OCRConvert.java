@@ -23,7 +23,8 @@ public class OCRConvert
         for (String ocrAccount : ocrData)
         {
             int accountNumber = accountParser.ParseString(ocrAccount);
-            System.out.println("Account: " + String.format("%09d", accountNumber));
+            boolean isValidAccountNumber = accountParser.IsValidAccountNumber(accountNumber);
+            System.out.println("Account: " + String.format("%09d", accountNumber) + " - is " + (isValidAccountNumber ? "" : "NOT ") + "valid");
         }
     }
 }

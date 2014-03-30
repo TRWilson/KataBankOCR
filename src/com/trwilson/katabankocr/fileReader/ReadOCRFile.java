@@ -32,8 +32,7 @@ public class ReadOCRFile
             {
                 if (!line.isEmpty())
                 {
-                    sb.append(line);
-                    sb.append(ls);
+                    sb.append(String.format("%-27s%s", line, ls));
                 }
                 else
                 {
