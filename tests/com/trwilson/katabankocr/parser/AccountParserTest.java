@@ -88,4 +88,14 @@ public class AccountParserTest
 
         Assert.assertEquals(1234567890, _AccountParser.ParseAccountNumber(ocrAccountString));
     }
+
+	@Test
+	public void TestParseOCRAccount()
+	{
+		String accountOCR = "    _  _     _  _  _  _  _ \r\n" +
+							"  | _| _||_||_ |_   ||_||_|\r\n" +
+							"  ||_  _|  | _||_|  ||_| _|\r\n";
+		int accountNumber = _AccountParser.ParseString(accountOCR);
+		Assert.assertEquals(123456789, accountNumber);
+	}
 }

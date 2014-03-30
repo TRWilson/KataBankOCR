@@ -79,4 +79,22 @@ public class AccountParser
         }
         return number;
     }
+
+    public int ParseString(String ocrString)
+    {
+        String[] ocrChars = {"", "", "", "", "", "", "", "", ""};
+
+        String noLineSeparators = ocrString.replace(System.getProperty("line.separator"), "");
+
+        for (int line = 0; line < 3; line++)
+        {
+            for (int index = 0; index < 9; index++)
+            {
+                int offset = line * 27 + index * 3;
+                ocrChars[index] += noLineSeparators.substring(offset, offset + 3);
+            }
+        }
+
+        return ParseAccountNumber(ocrChars);
+    }
 }

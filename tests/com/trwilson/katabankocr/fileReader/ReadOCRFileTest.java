@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -13,14 +16,13 @@ import java.io.IOException;
  */
 public class ReadOCRFileTest
 {
-    private String _OCRData;
-    private ReadOCRFile _ReadOCRFile;
+    private List<String> _OCRData;
 
     @Before
     public void setUp() throws IOException
     {
-        _ReadOCRFile = new ReadOCRFile();
-        _OCRData = _ReadOCRFile.ReadFile("OCRFile.txt");
+        ReadOCRFile readOCRFile = new ReadOCRFile();
+        _OCRData = readOCRFile.ReadFile("OCRFile.txt");
     }
 
     @Test
@@ -32,19 +34,18 @@ public class ReadOCRFileTest
     @Test
     public void TestReadOCRData()
     {
-        String expectedOCRData = "    _  _     _  _  _  _  _ \r\n" +
-                                 "  | _| _||_||_ |_   ||_||_|\r\n" +
-                                 "  ||_  _|  | _||_|  ||_| _|\r\n";
-        Assert.assertEquals(expectedOCRData, _OCRData);
+        String ls = System.getProperty("line.separator");
+        String expectedOCRAccount1 =
+                "    _  _     _  _  _  _  _ " + ls +
+                "  | _| _||_||_ |_   ||_||_|" + ls +
+                "  ||_  _|  | _||_|  ||_| _|" + ls;
+        String expectedOCRAccount2 =
+                " _  _  _  _  _     _  _    " + ls +
+                "|_||_|  ||_ |_ |_| _| _|  |" + ls +
+                " _||_|  ||_| _|  | _||_   |" + ls;
+
+        List<String> expectedDataList = Arrays.asList(expectedOCRAccount1, expectedOCRAccount2);
+
+        Assert.assertEquals(expectedDataList, _OCRData);
     }
-
-    @Test
-    public void TestParseFileData()
-    {
-        int accountNumber;
-
-        accountNumber = _ReadOCRFile.ParseString(_OCRData);
-        Assert.assertEquals(123456789, accountNumber);
-    }
-
 }
