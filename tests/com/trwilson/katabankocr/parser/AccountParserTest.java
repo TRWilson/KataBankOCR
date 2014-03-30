@@ -98,4 +98,11 @@ public class AccountParserTest
 		int accountNumber = _AccountParser.ParseString(accountOCR);
 		Assert.assertEquals(123456789, accountNumber);
 	}
+
+    @Test
+    public void TestIsValidAccountNumber()
+    {
+        Assert.assertTrue(_AccountParser.IsValidAccountNumber(457508000));
+        Assert.assertFalse(_AccountParser.IsValidAccountNumber(664371495));
+    }
 }

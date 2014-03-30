@@ -97,4 +97,9 @@ public class AccountParser
 
         return ParseAccountNumber(ocrChars);
     }
+
+    public boolean IsValidAccountNumber(int accountNumber)
+    {
+        return false;
+    }
 }
