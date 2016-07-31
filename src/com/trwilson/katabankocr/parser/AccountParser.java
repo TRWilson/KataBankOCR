@@ -51,12 +51,12 @@ public class AccountParser
                     " _|"
             };
 
-    public String GetOCRDigit(int digit)
+    String GetOCRDigit(int digit)
     {
         return OCRDigits[digit];
     }
 
-    public int ParseDigit(String ocrDigit)
+    int ParseDigit(String ocrDigit)
     {
         for (int i = 0; i < OCRDigits.length; i++)
         {
@@ -68,7 +68,7 @@ public class AccountParser
         return -1;
     }
 
-    public int ParseAccountNumber(String[] ocrNumber)
+    int ParseAccountNumber(String[] ocrNumber)
     {
         int number = 0;
 
