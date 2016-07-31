@@ -1,3 +1,3 @@
 @ECHO OFF
-java -cp out\production\KataBankOCR com.trwilson.katabankocr.OCRConvert
-java -cp out\production\KataBankOCR com.trwilson.katabankocr.OCRConvert OCRFile2.txt 
+java -cp target\KataBankOCR.jar com.trwilson.katabankocr.OCRConvert
+java -cp target\KataBankOCR.jar com.trwilson.katabankocr.OCRConvert OCRFile2.txt
